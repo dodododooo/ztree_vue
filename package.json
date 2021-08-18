@@ -8,9 +8,15 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@ztree/ztree_v3": "^3.5.46",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "jquery": "^3.6.0",
+    "reset-css": "^5.0.1",
+    "view-design": "^4.6.1",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
+    "vue-ztree-2.0": "^1.0.4",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
@@ -20,8 +26,11 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }
 }

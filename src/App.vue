@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <Layout class="height-100">
-      <Sider width="200">
+      <Sider width="250">
         <menus></menus>
       </Sider>
       <Layout>

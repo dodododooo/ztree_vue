@@ -1,12 +1,11 @@
 <template>
   <div class="List">
-    <div class="flex space-between">
+    <div class="flex space-between mb-1">
       <h2 class="title">{{name}}</h2>
-      <p></p>
-      <!-- <Input search enter-button placeholder="输入款号" style="width: 300px" /> -->
+      <Search @itemClick="itemClick"></Search>
     </div>
     <div class="pa-2">
-      <Table :data="list" :columns="columns" :loading="loading">
+      <Table :data="list" :columns="columns" :loading="loading" size="small">
         <template slot-scope="{ row }" slot="productImg">
             <img :src="row.productImg" style="width: 60px; height: 60px">
         </template>
@@ -33,9 +32,10 @@
 </template>
 
 <script>
+import Search from '../components/Search.vue';
 export default {
   name: 'List',
-  components: {},
+  components: {Search},
   data() {
     return {
       loading: false,
@@ -54,12 +54,10 @@ export default {
         {
           key: 'styleno',
           title: '款号',
-          width: 200,
         },
         {
           key: 'alias_name',
           title: '策划名',
-          width: 200,
         },
         {
           key: 'year',
@@ -75,10 +73,12 @@ export default {
           key: 'productImg',
           title: '产品图片',
           slot: 'productImg',
+          width: 100,
         },
         {
           title: '操作',
           slot: 'action',
+          width: 100,
         },
       ]
     };
@@ -97,6 +97,9 @@ export default {
     },
   },
   methods: {
+    itemClick(query) {
+      this.$router.push({name: 'Home', query});
+    },
     pageSizeChange(size) {
       this.current_page = 1;
       this.limit = size;
@@ -107,12 +110,12 @@ export default {
       this.loading = true;
       this.$http
         .get(`/api/collocation/productByType/${id}?id=${id}&page=${current_page}&limit=${limit}`)
-        .then(({ status, data, total, current_page }) => {
+        .then(({ status, data }) => {
           this.loading = false;
           if (status == 'success') {
             this.list = data.data || [];
-            this.total = total;
-            this.current_page = current_page;
+            this.total = data.total;
+            this.current_page = data.current_page;
           }
         }).catch(e => {
           this.loading = false;

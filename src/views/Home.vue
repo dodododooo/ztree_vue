@@ -2,7 +2,13 @@
   <div class="home relative">
     <Spin v-if="showSpin" size="large" fix></Spin>
     <div class="flex space-between">
-      <h2 class="title">产品基本信息</h2>
+      <div class="flex align-center">
+        <Button size="small" ghost type="primary" @click="$router.go(-1)">
+            <Icon type="ios-arrow-back" />
+            返回
+        </Button>
+        <h2 class="title ml-2">产品基本信息</h2>
+      </div>
       <div @click.stop.prevent class="flex start relative">
         <Select
           v-model="type"

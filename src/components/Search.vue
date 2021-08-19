@@ -11,7 +11,7 @@
         <Option value="春季">春季</Option>
         <Option value="夏季">夏季</Option>
         <Option value="秋季">秋季</Option>
-        <Option value="冬季">东季</Option>
+        <Option value="冬季">冬季</Option>
       </Select>
       <Select
         v-model="type"

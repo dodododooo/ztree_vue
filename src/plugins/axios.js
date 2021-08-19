@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import axios from "axios";
+import axios from 'axios';
 import Vue from 'vue';
 
 // Full config:  https://github.com/axios/axios#request-config
@@ -9,7 +9,10 @@ import Vue from 'vue';
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-  baseURL: 'http://osamodule.com'
+  baseURL:
+    process.env.NODE_ENV === 'development'
+      ? 'http://8.135.115.58:8001/'
+      : 'http://osamodule.com',
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };

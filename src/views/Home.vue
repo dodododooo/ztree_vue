@@ -7,8 +7,8 @@
     </div>
     <p v-if="!detail.styleno" class="py-10 color-gray text-center">没有内容</p>
     <template v-else>
-      <div class="flex pa-3">
-        <div class="flex flex-wrap mr-4">
+      <div class="flex py-3">
+        <div class="flex flex-wrap mr-4 detail-item">
           <p class="width-50 mb-1">款号： {{ detail.styleno || '暂无'}}</p>
           <p class="width-50 mb-1">策划名称： {{ detail.alias_name || '暂无'}}</p>
           <p class="width-50 mb-1">面料名称： {{ detail.material_name || '暂无'}}</p>
@@ -29,7 +29,7 @@
         </div>
         <img
           :src="detail.productImg"
-          class="mr-5"
+          class="mr-8"
           style="
             width: 200px;
             height: 200px;
@@ -101,9 +101,9 @@
       <div class="px-2 flex align-start">
         <div class="flex flex-wrap flex-item pt-1 mr-2">
           <p class="width-50 mb-1">搭配编号： {{ collocationInfo.mix_code || '暂无'}}</p>
-          <p class="width-50 mb-1">搭配卖点： {{ collocationInfo.mix_point || '暂无'}}</p>
+          <p class="width-50 mb-1 pl-2">搭配卖点： {{ collocationInfo.mix_point || '暂无'}}</p>
           <p class="width-50 mb-1">搭配风格： {{ collocationInfo.style || '暂无'}}</p>
-          <p class="width-50 mb-1">适合体形： {{ collocationInfo.suit_figure || '暂无'}}</p>
+          <p class="width-50 mb-1 pl-2">适合体形： {{ collocationInfo.suit_figure || '暂无'}}</p>
           <p class="width-50 mb-1">销售卖点： {{ collocationInfo.mix_point1 || '暂无'}}</p>
         </div>
         <Table
@@ -211,6 +211,9 @@ export default {
 </script>
 
 <style scoped>
+.detail-item > p {
+  padding-left: 24px;
+}
 .collocation-item {
   cursor: pointer;
   overflow: hidden;
